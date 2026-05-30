@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprende Canva — Curso Interactivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cp:#7d2ae8;--ct:#00c4cc;--cc:#ff6b6b;--cg:linear-gradient(135deg,#7d2ae8,#00c4cc);
+  --bg:#f7f8fc;--sf:#fff;--br:#e8eaf0;--tx:#1a1a2e;--mt:#6b7280;--r:12px;
+  --sh:0 2px 16px rgba(125,42,232,.07);--shm:0 8px 32px rgba(125,42,232,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+/* LOGIN */
+#ls{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#f0f2ff,#faf5ff 40%,#f0fffe);position:relative;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18;pointer-events:none;}
+.b1{width:500px;height:500px;background:var(--cp);top:-150px;right:-100px;}
+.b2{width:400px;height:400px;background:var(--ct);bottom:-100px;left:-80px;}
+.lc{background:#fff;border-radius:24px;padding:48px 44px;width:100%;max-width:440px;
+  box-shadow:0 24px 64px rgba(125,42,232,.14);position:relative;z-index:2;
+  animation:ci .5s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes ci{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
+.ll{display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+.lli{width:42px;height:42px;border-radius:10px;background:var(--cg);display:flex;align-items:center;justify-content:center;}
+.lli svg{width:22px;height:22px;fill:white;}
+.llt{font-size:20px;font-weight:800;letter-spacing:-.3px;}
+.llt span{background:var(--cg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.lc h1{font-size:26px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px;}
+.lc>p{font-size:14px;color:var(--mt);margin-bottom:28px;line-height:1.6;}
+.bg{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 20px;border-radius:10px;border:1.5px solid var(--br);background:#fff;
+  font-size:14px;font-weight:600;color:var(--tx);transition:border-color .2s,box-shadow .2s;margin-bottom:20px;}
+.bg:hover{border-color:#7d2ae844;box-shadow:0 4px 16px rgba(125,42,232,.1);}
+.bg img{width:20px;height:20px;}
+.dv{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:var(--br);}
+.dv span{font-size:12px;color:var(--mt);font-weight:500;}
+.fi{margin-bottom:16px;}
+.fi label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;}
+.fi input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--br);
+  font-family:inherit;font-size:14px;color:var(--tx);background:#fff;
+  transition:border-color .2s,box-shadow .2s;outline:none;}
+.fi input:focus{border-color:var(--cp);box-shadow:0 0 0 3px rgba(125,42,232,.1);}
+.fi input::placeholder{color:#b0b7c3;}
+.bp{width:100%;padding:13px;border-radius:10px;background:var(--cg);color:#fff;
+  font-size:14px;font-weight:700;transition:opacity .2s,transform .15s;margin-top:4px;}
+.bp:hover{opacity:.9;transform:translateY(-1px);}
+.ln{text-align:center;margin-top:20px;font-size:12px;color:var(--mt);}
+.ln a{color:var(--cp);text-decoration:none;font-weight:600;}
+
+/* APP */
+#app{display:none;min-height:100vh;flex-direction:column;}
+.tb{height:56px;background:#fff;border-bottom:1px solid var(--br);
+  display:flex;align-items:center;padding:0 24px;gap:16px;
+  position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(0,0,0,.05);}
+.tbl{display:flex;align-items:center;gap:8px;}
+.tbli{width:30px;height:30px;border-radius:7px;background:var(--cg);display:flex;align-items:center;justify-content:center;}
+.tbli svg{width:16px;height:16px;fill:#fff;}
+.tblt{font-size:16px;font-weight:800;letter-spacing:-.2px;}
+.tblt span{background:var(--cg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ts{width:1px;height:20px;background:var(--br);}
+.tc{font-size:13px;font-weight:600;color:var(--mt);}
+.tr{margin-left:auto;display:flex;align-items:center;gap:12px;}
+.pp{display:flex;align-items:center;gap:8px;background:#f0f2ff;border-radius:100px;padding:6px 14px;}
+.pt{width:80px;height:4px;background:#ddd;border-radius:2px;overflow:hidden;}
+.pf{height:100%;background:var(--cg);border-radius:2px;width:0%;transition:width .5s ease;}
+.pl{font-size:12px;font-weight:700;color:var(--cp);}
+.av{width:32px;height:32px;border-radius:50%;background:var(--cg);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+
+/* LAYOUT */
+.ab{display:flex;flex:1;min-height:calc(100vh - 56px);}
+.sb{width:280px;min-width:280px;background:#fff;border-right:1px solid var(--br);
+  display:flex;flex-direction:column;overflow-y:auto;
+  position:sticky;top:56px;height:calc(100vh - 56px);}
+.sbh{padding:20px 20px 12px;border-bottom:1px solid var(--br);}
+.sbh h2{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mt);}
+.mg{border-bottom:1px solid var(--br);}
+.ml{padding:10px 20px 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);}
+.ni{display:flex;align-items:center;gap:10px;padding:9px 20px;cursor:pointer;
+  transition:background .15s;position:relative;font-size:13px;font-weight:500;color:var(--tx);
+  border:none;background:none;width:100%;text-align:left;}
+.ni:hover{background:#f5f3ff;}
+.ni.active{background:#f0ecff;color:var(--cp);font-weight:600;}
+.ni.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;
+  background:var(--cg);border-radius:0 3px 3px 0;}
+.nd{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--br);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:9px;font-weight:700;color:var(--mt);background:#fff;transition:all .2s;}
+.ni.done .nd{background:var(--ct);border-color:var(--ct);color:#fff;}
+.ni.active .nd{background:var(--cp);border-color:var(--cp);color:#fff;}
+.nt{flex:1;line-height:1.3;}
+.ntm{font-size:10px;color:var(--mt);font-weight:500;}
+.mn{flex:1;overflow-y:auto;padding:40px 48px;max-width:900px;}
+
+/* LESSON */
+.lcard{animation:fu .35s ease both;}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.lh{margin-bottom:28px;}
+.lb{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cp);margin-bottom:8px;}
+.lh h1{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-bottom:10px;}
+.lmr{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.mc{display:flex;align-items:center;gap:5px;background:#f7f8fc;border:1px solid var(--br);
+  border-radius:100px;padding:4px 12px;font-size:12px;font-weight:500;color:var(--mt);}
+.mc svg{width:13px;height:13px;}
+
+/* DEMO BOX */
+.db{background:#fff;border:1px solid var(--br);border-radius:16px;overflow:hidden;margin-bottom:28px;box-shadow:var(--sh);}
+.dbar{background:#f7f8fc;border-bottom:1px solid var(--br);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.ddots{display:flex;gap:5px;}
+.ddots span{width:10px;height:10px;border-radius:50%;}
+.ddots span:nth-child(1){background:#ff6058;}
+.ddots span:nth-child(2){background:#ffbd2e;}
+.ddots span:nth-child(3){background:#28c840;}
+.durl{flex:1;background:#fff;border:1px solid var(--br);border-radius:6px;padding:4px 10px;font-size:11px;color:var(--mt);font-weight:500;display:flex;align-items:center;gap:6px;}
+.durl svg{width:11px;height:11px;opacity:.5;}
+.dvp{position:relative;min-height:220px;overflow:hidden;background:#fafafa;display:flex;align-items:flex-start;}
+
+/* CURSOR */
+.cur{position:absolute;width:20px;height:20px;pointer-events:none;z-index:50;transition:top .6s cubic-bezier(.4,0,.2,1),left .6s cubic-bezier(.4,0,.2,1);}
+.cur svg{width:20px;height:20px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.3));}
+.cc{position:absolute;width:36px;height:36px;border-radius:50%;border:2px solid rgba(125,42,232,.5);
+  top:50%;left:50%;transform:translate(-50%,-50%) scale(0);}
+.cur.ck .cc{animation:cr .4s ease-out forwards;}
+@keyframes cr{0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+
+/* Canva mocks */
+.me{display:flex;width:100%;min-height:260px;}
+.mlp{width:200px;min-width:200px;background:#fff;border-right:1px solid #e5e7eb;padding:12px 0;display:flex;flex-direction:column;gap:2px;}
+.mpt{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#6b7280;padding:4px 14px 8px;}
+.mfg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px;margin-bottom:12px;}
+.mfi{aspect-ratio:1;border-radius:6px;border:1.5px solid #e5e7eb;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#6b7280;cursor:pointer;background:#f9f9f9;position:relative;}
+.mfi.sl{border-color:var(--cp);color:var(--cp);}
+.mfi.sl::after{content:'✓';position:absolute;top:2px;right:3px;font-size:7px;color:var(--cp);font-weight:900;}
+.msr{padding:0 14px;margin-bottom:10px;}
+.msl{display:flex;justify-content:space-between;font-size:10px;color:#6b7280;margin-bottom:4px;}
+.mst{height:4px;background:#e5e7eb;border-radius:2px;position:relative;}
+.msf{height:100%;background:var(--cg);border-radius:2px;}
+.msth{width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--cp);position:absolute;top:50%;transform:translate(-50%,-50%);box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.mcanv{flex:1;background:#e8e8e8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.mphoto{width:200px;height:160px;border-radius:8px;background:linear-gradient(135deg,#c0d4f0,#d4c0f0);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(0,0,0,.15);position:relative;}
+.mpo{position:absolute;inset:0;border-radius:8px;background:rgba(125,42,232,.08);}
+.mch{position:absolute;width:12px;height:12px;border:2px solid var(--cp);background:#fff;border-radius:2px;}
+.mrp{width:220px;min-width:220px;background:#fff;border-left:1px solid #e5e7eb;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.mfo{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;border:1.5px solid #e5e7eb;cursor:pointer;transition:all .2s;}
+.mfo.sl{border-color:var(--cp);background:#f5f0ff;}
+.mfoi{width:28px;height:28px;border-radius:6px;background:#f0ecff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--cp);}
+.mfin{font-size:12px;font-weight:700;color:#1a1a2e;}
+.mfid{font-size:10px;color:#6b7280;}
+.mdb{padding:10px;border-radius:8px;background:var(--cg);color:#fff;font-size:12px;font-weight:700;text-align:center;cursor:pointer;margin-top:4px;}
+.msh{background:#fff;border-radius:12px;padding:20px;max-width:320px;margin:auto;box-shadow:0 8px 32px rgba(0,0,0,.12);}
+.msht{font-size:14px;font-weight:700;margin-bottom:14px;}
+.msho{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f3f4f6;cursor:pointer;}
+.msho:last-child{border:none;}
+.mshi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.mshinfo strong{display:block;font-size:12px;font-weight:600;color:#1a1a2e;}
+.mshinfo span{font-size:11px;color:#6b7280;}
+.mtopn{height:52px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;padding:0 20px;gap:16px;}
+.mlogo{display:flex;align-items:center;gap:6px;}
+.mlogoc{width:32px;height:32px;border-radius:8px;background:var(--cg);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;}
+.mlogot{font-size:15px;font-weight:800;color:var(--cp);}
+.mnls{display:flex;gap:20px;margin-left:8px;}
+.mnl{font-size:12px;color:#6b7280;font-weight:500;padding:4px 0;}
+.mnl.active{color:#1a1a2e;font-weight:600;border-bottom:2px solid var(--cp);}
+.mnr{margin-left:auto;display:flex;gap:10px;}
+.mbsm{padding:6px 14px;border-radius:7px;font-size:11px;font-weight:700;}
+.mbg{border:1.5px solid #e5e7eb;color:#1a1a2e;}
+.mbs{background:var(--cg);color:#fff;border:none;}
+.mhero{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:32px 20px;background:linear-gradient(160deg,#faf8ff,#f0fffe);gap:12px;}
+.mhero h2{font-size:22px;font-weight:800;color:#1a1a2e;text-align:center;line-height:1.2;}
+.mhero p{font-size:12px;color:#6b7280;text-align:center;}
+.msrch{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 16px;width:340px;max-width:90%;font-size:12px;color:#b0b7c3;}
+.msrch svg{width:14px;height:14px;color:#6b7280;opacity:.6;}
+.mcards{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.mcard{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#1a1a2e;width:80px;cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+.mcard:hover{border-color:var(--cp);box-shadow:0 4px 12px rgba(125,42,232,.1);}
+.mcardico{font-size:22px;}
+
+/* STEPS */
+.ss{margin-bottom:24px;}
+.ss h3{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--tx);}
+.sr{display:flex;gap:14px;margin-bottom:0;position:relative;}
+.sr:not(:last-child)::after{content:'';position:absolute;left:13px;top:28px;bottom:-14px;width:1.5px;background:var(--br);z-index:0;}
+.sn{width:26px;height:26px;border-radius:50%;background:var(--cg);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;margin-top:2px;}
+.sb2{flex:1;padding-bottom:18px;}
+.sb2 p{font-size:14px;line-height:1.65;color:var(--tx);}
+.sb2 strong{font-weight:700;}
+.tip{margin-top:8px;padding:10px 14px;border-radius:8px;background:#f5f3ff;border-left:3px solid var(--cp);font-size:12px;color:#4b5563;line-height:1.6;}
+.tip.t{background:#f0fffe;border-color:var(--ct);}
+.tip.c{background:#fff5f5;border-color:var(--cc);}
+.tip b{color:var(--cp);font-weight:700;}
+.tip.t b{color:var(--ct);}
+.tip.c b{color:var(--cc);}
+.fmtt{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;border:1px solid var(--br);margin-top:8px;}
+.fmtt th{background:#f7f8fc;padding:8px 14px;font-size:11px;font-weight:700;text-align:left;color:var(--mt);letter-spacing:.5px;text-transform:uppercase;}
+.fmtt td{padding:9px 14px;font-size:13px;border-top:1px solid var(--br);}
+.fmtt tr:hover td{background:#fafbff;}
+.badge{display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;}
+.badgep{background:#f0ecff;color:var(--cp);}
+.badget{background:#e6feff;color:#00a0a8;}
+.ppg{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.pp2{padding:7px 14px;border-radius:8px;border:1.5px solid var(--br);font-size:12px;font-weight:700;color:var(--tx);background:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:72px;text-align:center;}
+.pp2 span{font-size:10px;font-weight:400;color:var(--mt);}
+.pp2.hi{border-color:var(--cp);color:var(--cp);background:#f5f0ff;}
+.lnav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-top:1px solid var(--br);margin-top:8px;}
+.bnav{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;transition:all .2s;}
+.bprev{border:1.5px solid var(--br);color:var(--mt);}
+.bprev:hover{border-color:var(--cp);color:var(--cp);}
+.bdone{background:var(--cg);color:#fff;}
+.bdone:hover{opacity:.88;transform:translateY(-1px);}
+.bdone.comp{background:linear-gradient(135deg,#00c4cc,#00a0a8);}
+.lctr{font-size:13px;color:var(--mt);font-weight:500;}
+.cel{text-align:center;padding:60px 32px;background:linear-gradient(135deg,#f5f3ff,#f0fffe);border-radius:20px;border:1px solid var(--br);display:none;}
+.cel.show{display:block;animation:fu .5s ease;}
+.cel h1{font-size:36px;font-weight:800;margin-bottom:12px;letter-spacing:-.5px;background:var(--cg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cel p{font-size:16px;color:var(--mt);max-width:460px;margin:0 auto;line-height:1.7;}
+@media(max-width:768px){.sb{display:none;}.mn{padding:24px 20px;}.mlp{display:none;}.mrp{display:none;}}
+</style></head>
+<body>
+<div id="ls">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="lc">
+    <div class="ll">
+      <div class="lli"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
+      <div class="llt"><span>Canva</span> Academy</div>
+    </div>
+    <h1>Bienvenido al curso</h1>
+    <p>Inicia sesión para comenzar tu aprendizaje de edición fotográfica en Canva.</p>
+    <button class="bg" onclick="loginG()">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G">
+      Continuar con Google
+    </button>
+    <div class="dv"><span>o con tu correo</span></div>
+    <div class="fi"><label>Correo electrónico</label><input type="email" id="em" placeholder="tucorreo@ejemplo.com"></div>
+    <div class="fi"><label>Contraseña</label><input type="password" id="pw" placeholder="••••••••"></div>
+    <button class="bp" onclick="loginE()">Entrar al curso</button>
+    <p class="ln">¿No tienes cuenta? <a href="#" onclick="loginE()">Regístrate gratis</a></p>
+  </div>
+</div>
+
+<div id="app">
+  <div class="tb">
+    <div class="tbl">
+      <div class="tbli"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
+      <div class="tblt"><span>Canva</span> Academy</div>
+    </div>
+    <div class="ts"></div>
+    <span class="tc">Fotografía para principiantes</span>
+    <div class="tr">
+      <div class="pp"><div class="pt"><div class="pf" id="tp"></div></div><span class="pl" id="tl">0%</span></div>
+      <div class="av" id="ua">U</div>
+    </div>
+  </div>
+  <div class="ab">
+    <nav class="sb">
+      <div class="sbh"><h2>Contenido del curso</h2></div>
+      <div class="mg">
+        <div class="ml">Módulo 1 — Fundamentos</div>
+        <button class="ni active" onclick="go(0)" id="nav0"><div class="nd">1</div><span class="nt">¿Qué es Canva?</span><span class="ntm">5 min</span></button>
+        <button class="ni" onclick="go(1)" id="nav1"><div class="nd">2</div><span class="nt">Crear tu cuenta</span><span class="ntm">8 min</span></button>
+        <button class="ni" onclick="go(2)" id="nav2"><div class="nd">3</div><span class="nt">La pantalla de inicio</span><span class="ntm">10 min</span></button>
+        <button class="ni" onclick="go(3)" id="nav3"><div class="nd">4</div><span class="nt">Subir tu primera foto</span><span class="ntm">7 min</span></button>
+      </div>
+      <div class="mg">
+        <div class="ml">Módulo 2 — Edición esencial</div>
+        <button class="ni" onclick="go(4)" id="nav4"><div class="nd">5</div><span class="nt">Brillo, contraste y color</span><span class="ntm">12 min</span></button>
+        <button class="ni" onclick="go(5)" id="nav5"><div class="nd">6</div><span class="nt">Aplicar filtros</span><span class="ntm">8 min</span></button>
+        <button class="ni" onclick="go(6)" id="nav6"><div class="nd">7</div><span class="nt">Recortar la foto</span><span class="ntm">10 min</span></button>
+        <button class="ni" onclick="go(7)" id="nav7"><div class="nd">8</div><span class="nt">Voltear y rotar</span><span class="ntm">6 min</span></button>
+      </div>
+      <div class="mg">
+        <div class="ml">Módulo 3 — Avanzado</div>
+        <button class="ni" onclick="go(8)" id="nav8"><div class="nd">9</div><span class="nt">Eliminar el fondo</span><span class="ntm">10 min</span></button>
+        <button class="ni" onclick="go(9)" id="nav9"><div class="nd">10</div><span class="nt">Borrador mágico</span><span class="ntm">12 min</span></button>
+        <button class="ni" onclick="go(10)" id="nav10"><div class="nd">11</div><span class="nt">Agregar texto</span><span class="ntm">10 min</span></button>
+        <button class="ni" onclick="go(11)" id="nav11"><div class="nd">12</div><span class="nt">Deshacer cambios</span><span class="ntm">5 min</span></button>
+      </div>
+      <div class="mg">
+        <div class="ml">Módulo 4 — Publicar</div>
+        <button class="ni" onclick="go(12)" id="nav12"><div class="nd">13</div><span class="nt">Descargar la foto</span><span class="ntm">10 min</span></button>
+        <button class="ni" onclick="go(13)" id="nav13"><div class="nd">14</div><span class="nt">Compartir en redes</span><span class="ntm">8 min</span></button>
+        <button class="ni" onclick="go(14)" id="nav14"><div class="nd">15</div><span class="nt">Link de colaboración</span><span class="ntm">7 min</span></button>
+        <button class="ni" onclick="go(15)" id="nav15"><div class="nd">16</div><span class="nt">🎯 Práctica final</span><span class="ntm">20 min</span></button>
+      </div>
+    </nav>
+    <div class="mn" id="mc"></div>
+  </div>
+</div>
+
+<script>
+const L=[
+{m:'Módulo 1 · Fundamentos',t:'¿Qué es Canva y para qué sirve?',ti:'5 min',d:'home',
+ i:'Canva es una herramienta de diseño y edición que funciona directo desde el navegador. No necesitas instalar nada — solo un correo y conexión a internet.',
+ s:[{p:'<b>Editar una foto</b> significa mejorar su brillo, colores o recortarla para que se vea más profesional.',tp:'💡 Una foto oscura del evento → en Canva la aclaras en 30 segundos y queda lista para publicar.',tt:''},
+    {p:'<b>¿Por qué Canva?</b> Porque es gratuita, está en español y es 100% visual. Todo se hace con clics y arrastres.',tp:'',tt:''},
+    {p:'En este curso aprenderás a <b>editar fotografías</b>: ajustes, filtros, recorte, descarga y compartir.',tp:'',tt:''}]},
+
+{m:'Módulo 1 · Fundamentos',t:'Crear tu cuenta gratuita en Canva',ti:'8 min',d:'reg',
+ i:'Solo necesitas un correo electrónico. Sigue estos pasos exactos en canva.com:',
+ s:[{p:'Abre tu navegador y escribe <b>canva.com</b>. Presiona Enter.',tp:'',tt:''},
+    {p:'Haz clic en <b>"Registrarse"</b> — botón en la esquina superior derecha.',tp:'',tt:''},
+    {p:'Elige <b>"Continuar con Google"</b> si usas Gmail — es la opción más rápida.',tp:'🔐 Alternativa: escribe tu correo y crea una contraseña de al menos 8 caracteres.',tt:'t'},
+    {p:'Canva preguntará para qué usarás la plataforma. Selecciona <b>"Para trabajo"</b>.',tp:'',tt:''},
+    {p:'¡Listo! Guarda canva.com en <b>Marcadores</b> del navegador (Ctrl+D).',tp:'',tt:''}]},
+
+{m:'Módulo 1 · Fundamentos',t:'Conocer la pantalla de inicio',ti:'10 min',d:'home',
+ i:'La pantalla de inicio tiene tres zonas clave. Identifícalas antes de empezar a editar:',
+ s:[{p:'<b>Barra lateral izquierda:</b> acceso a proyectos, plantillas y fotos. Por ahora puedes ignorarla.',tp:'',tt:''},
+    {p:'<b>Buscador central:</b> la barra grande "¿Qué vas a diseñar hoy?". Escribe "editar foto" para ir directo.',tp:'',tt:''},
+    {p:'<b>Accesos rápidos:</b> botones debajo del buscador. Busca el que dice <b>"Editar foto"</b>.',tp:'💡 ¿No lo ves? Escribe "editar foto" en el buscador.',tt:''},
+    {p:'Explora haciendo clic sin miedo — Canva guarda automáticamente.',tp:'',tt:''}]},
+
+{m:'Módulo 1 · Fundamentos',t:'Subir tu primera fotografía',ti:'7 min',d:'upload',
+ i:'Para editar una foto primero debes subirla. Canva acepta JPG, PNG y WEBP.',
+ s:[{p:'Desde inicio, haz clic en <b>"Editar foto"</b>. Aparecerá el área de carga.',tp:'',tt:''},
+    {p:'Haz clic en <b>"Cargar archivo"</b> y busca la foto. También puedes arrastrarla al navegador.',tp:'',tt:''},
+    {p:'Espera la barra de progreso. Cuando termine, la foto aparecerá en el editor.',tp:'📁 ¿No encuentras tu foto? Busca en "Descargas" o "Imágenes".',tt:'c'},
+    {p:'La foto queda en <b>"Mis archivos"</b> — no tendrás que subirla de nuevo.',tp:'',tt:''}]},
+
+{m:'Módulo 2 · Edición esencial',t:'Brillo, contraste y saturación',ti:'12 min',d:'adj',
+ i:'Con la foto abierta verás el panel lateral con deslizadores. Mueve cada uno y observa el cambio en tiempo real.',
+ s:[{p:'<b>Brillo:</b> aclara u oscurece la foto. Si está oscura, mueve a la derecha. Si está quemada, a la izquierda.',tp:'⚠️ Regla de oro: nunca sumes demasiado brillo — la foto pierde detalle.',tt:'c'},
+    {p:'<b>Contraste:</b> hace las zonas oscuras más oscuras y las claras más claras. Da profundidad.',tp:'',tt:''},
+    {p:'<b>Saturación:</b> subir = colores más vivos. Bajar = apagados, hasta blanco y negro en cero.',tp:'',tt:''},
+    {p:'<b>Temperatura:</b> tonos cálidos (amarillo/naranjo) o fríos (azul). Corrige luz artificial.',tp:'',tt:''},
+    {p:'<b>Nitidez:</b> define bordes. Úsala con moderación — demasiada se ve artificial.',tp:'',tt:''}]},
+
+{m:'Módulo 2 · Edición esencial',t:'Aplicar filtros',ti:'8 min',d:'fil',
+ i:'Los filtros son combinaciones prehechas de brillo, contraste y color. Transforman la foto con un clic.',
+ s:[{p:'Busca la sección <b>"Filtros"</b> en el panel lateral. Verás miniaturas con distintos estilos.',tp:'',tt:''},
+    {p:'Pasa el cursor sobre cada filtro para ver una <b>vista previa sin aplicarlo</b>.',tp:'',tt:''},
+    {p:'Haz clic en el filtro elegido. Aparecerá un deslizador de <b>intensidad</b>.',tp:'✅ Buena práctica: la mayoría quedan mejor al 60–80% de intensidad, no al 100%.',tt:'t'},
+    {p:'Para volver al original, haz clic en <b>"Normal"</b> — el primer cuadro de la galería.',tp:'',tt:''}]},
+
+{m:'Módulo 2 · Edición esencial',t:'Recortar y ajustar el encuadre',ti:'10 min',d:'crop',
+ i:'Recortar elimina partes de la foto para quedarte solo con lo importante.',
+ s:[{p:'Busca el botón <b>"Recortar"</b> en la barra superior. Aparecerán esquinas arrastrables.',tp:'',tt:''},
+    {p:'Arrastra cualquier esquina hacia adentro. Lo que queda dentro se conservará.',tp:'',tt:''},
+    {p:'Usa las <b>proporciones preestablecidas</b> según el destino de tu foto:',tp:'',tt:'',pr:true},
+    {p:'Haz clic en <b>"Aplicar"</b> o presiona Enter para confirmar.',tp:'',tt:''}]},
+
+{m:'Módulo 2 · Edición esencial',t:'Voltear, rotar y enderezar',ti:'6 min',d:'rot',
+ i:'Fotos rotadas o ligeramente torcidas son muy comunes. Canva las corrige en segundos.',
+ s:[{p:'Busca <b>"Girar"</b> en el panel. Los botones ↺ ↻ rotan la foto 90° de un clic.',tp:'',tt:''},
+    {p:'Para correcciones pequeñas, usa el deslizador de <b>"Enderezar"</b>.',tp:'👁️ Truco: fíjate en el horizonte — cuando quede paralelo al borde, está recta.',tt:''},
+    {p:'<b>Voltear:</b> el botón "Voltear horizontal" crea un espejo de la imagen.',tp:'',tt:''}]},
+
+{m:'Módulo 3 · Avanzado',t:'Eliminar el fondo de una foto',ti:'10 min',d:'rbg',
+ i:'Esta función elimina el fondo dejando solo el sujeto principal. Muy útil para productos o retratos.',
+ s:[{p:'Con la foto abierta, haz clic en <b>"Editar foto"</b> y busca <b>"Quitar fondo"</b>.',tp:'ℹ️ Esta función requiere Canva Pro. En la versión gratuita puedes ver la vista previa.',tt:'c'},
+    {p:'La IA elimina el fondo en 5–10 segundos. Verás el resultado con fondo transparente.',tp:'',tt:''},
+    {p:'Si no es perfecto, usa <b>"Borrar"</b> para quitar áreas sobrantes y <b>"Restaurar"</b> para recuperar partes.',tp:'',tt:''},
+    {p:'Haz clic en <b>"Aplicar"</b>. Descarga siempre en PNG para mantener la transparencia.',tp:'',tt:''}]},
+
+{m:'Módulo 3 · Avanzado',t:'Borrador mágico',ti:'12 min',d:'mag',
+ i:'¿Un letrero feo, una persona de fondo? El Borrador Mágico lo elimina con IA.',
+ s:[{p:'Ve a <b>"Editar foto"</b> → busca <b>"Borrador mágico"</b>.',tp:'',tt:''},
+    {p:'Ajusta el tamaño del pincel según el objeto: grande para objetos grandes.',tp:'',tt:''},
+    {p:'Pinta sobre el objeto a eliminar. Quedará marcado en rosado.',tp:'✏️ Consejo: pinta un poco más allá del borde para que la IA entienda mejor.',tt:'t'},
+    {p:'Haz clic en <b>"Borrar"</b> y espera 3–5 segundos. Si no queda bien, usa Ctrl+Z.',tp:'',tt:''}]},
+
+{m:'Módulo 3 · Avanzado',t:'Agregar texto sobre una fotografía',ti:'10 min',d:'txt',
+ i:'Agregar texto es esencial para publicaciones, promociones o marcas de agua.',
+ s:[{p:'En el panel izquierdo, haz clic en <b>"Texto"</b>. Elige entre Título, Subtítulo o Cuerpo.',tp:'',tt:''},
+    {p:'Aparece un cuadro sobre la foto. Haz <b>doble clic</b> para escribir. Arrástralo a donde quieras.',tp:'',tt:''},
+    {p:'Con el texto seleccionado, cambia: fuente, tamaño, color y alineación en la barra superior.',tp:'🎨 Para que se lea bien: texto blanco sobre zonas oscuras, texto oscuro sobre claras.',tt:''},
+    {p:'Haz clic fuera para deseleccionar y ver el resultado final.',tp:'',tt:''}]},
+
+{m:'Módulo 3 · Avanzado',t:'Deshacer cambios y comparar',ti:'5 min',d:'undo',
+ i:'Nadie edita perfecta a la primera. Estas herramientas te permiten volver atrás.',
+ s:[{p:'<b>Deshacer:</b> presiona Ctrl+Z (Windows) o Cmd+Z (Mac). Puedes repetirlo varias veces.',tp:'↩️ La flecha ↩ en la barra superior izquierda hace lo mismo.',tt:''},
+    {p:'<b>Restablecer todo:</b> busca el botón "Restablecer" para volver al estado original.',tp:'',tt:''},
+    {p:'<b>Comparar antes/después:</b> mantén presionado el ícono de ojo 👁️ en los ajustes.',tp:'',tt:''}]},
+
+{m:'Módulo 4 · Publicar',t:'Descargar la foto en el formato correcto',ti:'10 min',d:'dl',
+ i:'El formato que eliges determina la calidad y el peso del archivo.',
+ s:[{p:'Haz clic en <b>"Compartir"</b> (esquina superior derecha) → luego en <b>"Descargar"</b>.',tp:'',tt:''},
+    {p:'Elige el formato según el uso:',tp:'',tt:'',ft:true},
+    {p:'Selecciona <b>JPG</b> para la mayoría de los casos. Activa <b>"Alta calidad"</b> si aparece.',tp:'',tt:''},
+    {p:'Haz clic en el botón azul <b>"Descargar"</b>. El archivo va a tu carpeta "Descargas".',tp:'',tt:''}]},
+
+{m:'Módulo 4 · Publicar',t:'Compartir directamente a redes sociales',ti:'8 min',d:'shr',
+ i:'Canva puede publicar directamente en redes sociales sin descargar nada.',
+ s:[{p:'Haz clic en <b>"Compartir"</b> (esquina superior derecha). Verás opciones por plataforma.',tp:'',tt:''},
+    {p:'Busca <b>"Programar en redes sociales"</b> o haz clic en el ícono de la red que quieras.',tp:'',tt:''},
+    {p:'La primera vez Canva pedirá conectar tu cuenta. Sigue las instrucciones.',tp:'⚠️ La publicación directa en Instagram solo funciona con cuentas profesionales o de creador.',tt:'c'},
+    {p:'Elige publicar ahora o <b>programar para una fecha futura</b>. Haz clic en "Publicar".',tp:'',tt:''}]},
+
+{m:'Módulo 4 · Publicar',t:'Compartir link para revisión',ti:'7 min',d:'slnk',
+ i:'Si un colega necesita ver o aprobar tu trabajo, envíale un link sin descargar nada.',
+ s:[{p:'Haz clic en <b>"Compartir"</b> → selecciona <b>"Compartir con otras personas"</b>.',tp:'',tt:''},
+    {p:'Elige el nivel de acceso: <b>Solo ver</b>, <b>Puede comentar</b> o <b>Puede editar</b>.',tp:'',tt:''},
+    {p:'Haz clic en <b>"Copiar link"</b> y pégalo en un correo, WhatsApp o Slack.',tp:'',tt:''}]},
+
+{m:'Módulo 4 · Práctica final',t:'🎯 Práctica final: flujo completo',ti:'20 min',d:'fin',
+ i:'Hora de unir todo lo aprendido en un solo ejercicio con una foto real:',
+ s:[{p:'<b>Sube</b> una foto desde tu computador usando "Editar foto" en Canva.',tp:'',tt:''},
+    {p:'<b>Aplica un filtro</b> que te guste. Baja su intensidad al 70%.',tp:'',tt:''},
+    {p:'<b>Ajusta manualmente</b> brillo, contraste y saturación.',tp:'',tt:''},
+    {p:'<b>Recorta</b> en formato cuadrado 1:1 para Instagram.',tp:'',tt:''},
+    {p:'<b>Agrega texto</b> con el nombre del negocio como marca de agua.',tp:'',tt:''},
+    {p:'<b>Descarga</b> en JPG, alta calidad.',tp:'',tt:''},
+    {p:'<b>Comparte el link</b> con un colega en modo "Solo ver".',tp:'🎉 ¡Completaste el flujo profesional completo de edición fotográfica en Canva!',tt:'t'}]}
+];
+
+let cur=0,done=new Set(),un='U',atm=null,as=0;
+
+function loginG(){un='GG';launch();}
+function loginE(){const e=document.getElementById('em').value.trim();un=e?e[0].toUpperCase():'U';launch();}
+function launch(){
+  document.getElementById('ls').style.display='none';
+  const a=document.getElementById('app');a.style.display='flex';
+  document.getElementById('ua').textContent=un;go(0);
+}
+
+function go(i){
+  cur=i;
+  document.querySelectorAll('.ni').forEach((e,j)=>e.classList.toggle('active',j===i));
+  render();
+  document.querySelector('.mn').scrollTop=0;
+}
+
+function upProg(){
+  const p=Math.round((done.size/L.length)*100);
+  document.getElementById('tp').style.width=p+'%';
+  document.getElementById('tl').textContent=p+'%';
+  done.forEach(i=>{const n=document.getElementById('nav'+i);if(n){n.classList.add('done');n.querySelector('.nd').innerHTML='✓';}});
+}
+
+function mkDone(){
+  done.add(cur);upProg();render();
+  if(cur<L.length-1)setTimeout(()=>go(cur+1),500);
+}
+
+function render(){
+  const l=L[cur],id=done.has(cur),il=cur===L.length-1;
+  const stps=l.s.map((s,i)=>`
+    <div class="sr">
+      <div class="sn">${i+1}</div>
+      <div class="sb2">
+        <p>${s.p}</p>
+        ${s.pr?propPills():''}
+        ${s.ft?fmtTable():''}
+        ${s.tp?`<div class="tip ${s.tt}"><b>${['💡','✅','⚠️','🔐','📁','↩️','👁️','🎉','ℹ️','✏️','🎨','📅'].find(e=>s.tp.startsWith(e))||''}:</b> ${s.tp.replace(/^[^\s]+\s/,'')}</div>`:''}
+      </div>
+    </div>`).join('');
+  const prev=cur>0?`<button class="bnav bprev" onclick="go(${cur-1})">← Anterior</button>`:`<div></div>`;
+  const nxt=il
+    ?`<button class="bnav bdone ${id?'comp':''}" onclick="mkDone()">${id?'✓ Completado':'¡Completar curso! 🎉'}</button>`
+    :`<button class="bnav bdone ${id?'comp':''}" onclick="mkDone()">${id?'✓ Completada':'Marcar completada →'}</button>`;
+  const cel=(il&&id)?`<div class="cel show"><h1>¡Curso completado! 🎉</h1><p>Ahora sabes editar, descargar y compartir fotografías en Canva de manera profesional. ¡Excelente trabajo!</p></div>`:'';
+  document.getElementById('mc').innerHTML=`
+  <div class="lcard">
+    <div class="lh">
+      <div class="lb">${l.m}</div>
+      <h1>${l.t}</h1>
+      <div class="lmr">
+        <div class="mc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${l.ti}</div>
+        <div class="mc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Lección ${cur+1} de ${L.length}</div>
+        ${id?'<div class="mc" style="color:#00a0a8;border-color:#b2f0ee;">✓ Completada</div>':''}
+      </div>
+    </div>
+    <div class="db">
+      <div class="dbar">
+        <div class="ddots"><span></span><span></span><span></span></div>
+        <div class="durl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>canva.com</div>
+      </div>
+      <div class="dvp" id="dvp">${demoHTML(l.d)}</div>
+    </div>
+    <p style="font-size:14px;color:#6b7280;line-height:1.7;margin-bottom:24px;font-weight:300;">${l.i}</p>
+    <div class="ss"><h3>Pasos a seguir</h3>${stps}</div>
+    <div class="lnav">${prev}<span class="lctr">${cur+1} / ${L.length}</span>${nxt}</div>
+    ${cel}
+  </div>`;
+  startAnim(l.d);
+}
+
+function propPills(){return`<div class="ppg"><div class="pp2 hi">1:1<span>Instagram</span></div><div class="pp2">4:3<span>Presentaciones</span></div><div class="pp2">16:9<span>YouTube</span></div><div class="pp2">9:16<span>Stories</span></div><div class="pp2">Libre<span>Sin límite</span></div></div>`;}
+
+function fmtTable(){return`<table class="fmtt"><tr><th>Formato</th><th>Cuándo usarlo</th><th>Tipo</th></tr><tr><td><b>JPG</b></td><td>Fotos para compartir, imprimir o publicar</td><td><span class="badge badgep">Recomendado</span></td></tr><tr><td><b>PNG</b></td><td>Cuando eliminaste el fondo (transparencia)</td><td><span class="badge badget">Transparente</span></td></tr><tr><td><b>PDF</b></td><td>Para impresión profesional en imprenta</td><td></td></tr><tr><td><b>SVG</b></td><td>Solo para logos — nunca para fotografías</td><td></td></tr></table>`;}
+
+function csr(id){return`<div class="cur" id="${id}"><div class="cc"></div><svg viewBox="0 0 24 24" fill="#1a1a2e"><path d="M4 0l16 12-7 1-4 8z"/></svg></div>`;}
+
+function sldr(lbl,val){return`<div class="msr"><div class="msl"><span>${lbl}</span><span style="color:var(--cp);font-weight:700;">${parseInt(val)}</span></div><div class="mst"><div class="msf" style="width:${val};"></div><div class="msth" style="left:${val};"></div></div></div>`;}
+
+function demoHTML(tp){
+  if(tp==='home')return`<div style="width:100%;display:flex;flex-direction:column;">
+    <div class="mtopn"><div class="mlogo"><div class="mlogoc">C</div><span class="mlogot">Canva</span></div><div class="mnls"><div class="mnl active">Inicio</div><div class="mnl">Plantillas</div><div class="mnl">Proyectos</div></div><div class="mnr"><button class="mbsm mbg">Iniciar sesión</button><button class="mbsm mbs">Registrarse</button></div></div>
+    <div class="mhero"><h2>¿Qué vas a diseñar hoy?</h2><div class="msrch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Busca un diseño o escribe "editar foto"…</div><div class="mcards"><div class="mcard" id="hef"><div class="mcardico">🖼️</div>Editar foto</div><div class="mcard"><div class="mcardico">📱</div>Story</div><div class="mcard"><div class="mcardico">🖥️</div>Presentación</div><div class="mcard"><div class="mcardico">📄</div>Documento</div></div></div></div>${csr('c0')}`;
+
+  if(tp==='reg')return`<div style="background:linear-gradient(135deg,#f0f2ff,#f0fffe);display:flex;align-items:center;justify-content:center;width:100%;min-height:260px;padding:20px;position:relative;">
+    <div style="background:#fff;border-radius:16px;padding:28px;width:280px;box-shadow:0 8px 32px rgba(125,42,232,.12);">
+      <div style="font-size:18px;font-weight:800;margin-bottom:4px;">Crear cuenta</div>
+      <div style="font-size:11px;color:#6b7280;margin-bottom:16px;">Ingresa a Canva de forma gratuita</div>
+      <div id="rg" style="display:flex;align-items:center;gap:8px;border:1.5px solid #e5e7eb;border-radius:8px;padding:10px 12px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:12px;">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:16px;height:16px;">Continuar con Google</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;"><div style="flex:1;height:1px;background:#e5e7eb;"></div><span style="font-size:10px;color:#9ca3af;">o</span><div style="flex:1;height:1px;background:#e5e7eb;"></div></div>
+      <div style="background:#f7f8fc;border:1.5px solid #e5e7eb;border-radius:7px;padding:9px 12px;font-size:11px;color:#9ca3af;margin-bottom:8px;">tucorreo@ejemplo.com</div>
+      <div style="background:#f7f8fc;border:1.5px solid #e5e7eb;border-radius:7px;padding:9px 12px;font-size:11px;color:#9ca3af;margin-bottom:12px;">••••••••</div>
+      <div style="background:var(--cg);color:#fff;border-radius:7px;padding:10px;text-align:center;font-size:12px;font-weight:700;">Crear cuenta gratis</div>
+    </div>${csr('c1')}</div>`;
+
+  if(tp==='upload')return`<div style="background:#f7f8fc;display:flex;align-items:center;justify-content:center;width:100%;min-height:240px;padding:20px;position:relative;">
+    <div style="border:2px dashed #c4b5fd;border-radius:16px;padding:40px;text-align:center;background:#fff;width:320px;">
+      <div style="font-size:36px;margin-bottom:10px;">📁</div>
+      <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Arrastra tu foto aquí</div>
+      <div style="font-size:11px;color:#6b7280;margin-bottom:16px;">o haz clic para buscar en tu computador</div>
+      <div id="bup" style="background:var(--cg);color:#fff;border-radius:8px;padding:10px 24px;font-size:12px;font-weight:700;display:inline-block;cursor:pointer;">Cargar archivo</div>
+      <div style="font-size:10px;color:#9ca3af;margin-top:10px;">JPG, PNG, WEBP — hasta 25 MB</div>
+    </div>${csr('c2')}</div>`;
+
+  if(tp==='adj')return`<div class="me"><div class="mlp"><div class="mpt">Ajustes</div>${sldr('Brillo','60%')}${sldr('Contraste','45%')}${sldr('Saturación','70%')}${sldr('Temperatura','30%')}${sldr('Nitidez','25%')}</div><div class="mcanv"><div class="mphoto">🌄<div class="mpo"></div></div>${csr('c3')}</div></div>`;
+
+  if(tp==='fil'){const fs=['Normal','Vivid','Fade','Warm','Cool','B&W','Drama','Lush'];const fc=['#f9f9f9','#fff0e6','#f0f0f0','#fff8e6','#e6f0ff','#e8e8e8','rgba(26,26,46,.13)','#e6ffe6'];
+    return`<div class="me"><div class="mlp"><div class="mpt">Filtros</div><div class="mfg">${fs.map((n,i)=>`<div class="mfi ${i===3?'sl':''}" style="background:${fc[i]};">${n}</div>`).join('')}</div><div class="mpt" style="margin-top:4px;">Intensidad</div>${sldr('','72%')}</div><div class="mcanv"><div class="mphoto" style="background:linear-gradient(135deg,#f0d4a0,#d4a06e);">🏔️<div class="mpo" style="background:rgba(255,180,60,.12);"></div></div>${csr('c4')}</div></div>`;}
+
+  if(tp==='crop')return`<div class="me"><div class="mlp"><div class="mpt">Recortar</div><div style="padding:0 12px;">${['Libre','1:1','4:3','16:9','9:16'].map((p,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;margin-bottom:4px;background:${i===1?'#f0ecff':'transparent'};border:1.5px solid ${i===1?'var(--cp)':'#e5e7eb'};cursor:pointer;font-size:12px;font-weight:${i===1?700:500};color:${i===1?'var(--cp)':'#1a1a2e'};">${p}${i===1?'<span style="margin-left:auto;font-size:10px;color:var(--ct);">Instagram</span>':''}</div>`).join('')}</div></div><div class="mcanv"><div class="mphoto" style="position:relative;">🌅<div class="mpo"></div><div class="mch" style="top:-1px;left:-1px;"></div><div class="mch" style="top:-1px;right:-1px;"></div><div class="mch" style="bottom:-1px;left:-1px;"></div><div class="mch" style="bottom:-1px;right:-1px;"></div></div>${csr('c5')}</div></div>`;
+
+  if(tp==='rot')return`<div class="me"><div class="mlp"><div class="mpt">Girar y voltear</div><div style="display:flex;gap:6px;padding:0 12px;margin-bottom:12px;"><div style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #e5e7eb;text-align:center;font-size:16px;cursor:pointer;">↺</div><div style="flex:1;padding:8px;border-radius:8px;border:1.5px solid #e5e7eb;text-align:center;font-size:16px;cursor:pointer;">↻</div></div><div style="display:flex;gap:6px;padding:0 12px;margin-bottom:12px;"><div style="flex:1;padding:7px;border-radius:8px;border:1.5px solid #e5e7eb;text-align:center;font-size:10px;font-weight:600;">⇄ Voltear H</div><div style="flex:1;padding:7px;border-radius:8px;border:1.5px solid #e5e7eb;text-align:center;font-size:10px;font-weight:600;">⇅ Voltear V</div></div><div class="mpt">Enderezar</div>${sldr('Inclinación','55%')}</div><div class="mcanv"><div class="mphoto" style="transform:rotate(-4deg);">🏙️<div class="mpo"></div></div>${csr('c6')}</div></div>`;
+
+  if(tp==='rbg')return`<div class="me"><div class="mlp"><div class="mpt">Quitar fondo</div><div style="padding:0 12px;"><div id="brb" style="background:var(--cg);color:#fff;border-radius:8px;padding:10px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;margin-bottom:10px;">✨ Quitar fondo</div><div style="display:flex;gap:6px;"><div style="flex:1;padding:8px;border-radius:7px;border:1.5px solid #e5e7eb;text-align:center;font-size:10px;font-weight:600;">Borrar</div><div style="flex:1;padding:8px;border-radius:7px;border:1.5px solid #e5e7eb;text-align:center;font-size:10px;font-weight:600;">Restaurar</div></div></div></div><div class="mcanv" style="background:repeating-conic-gradient(#ccc 0% 25%,#fff 0% 50%) 0 0/16px 16px;"><div class="mphoto" style="background:transparent;box-shadow:none;"><div style="width:80px;height:100px;background:linear-gradient(135deg,#f0c0a0,#e0a080);border-radius:40px 40px 20px 20px;display:flex;align-items:center;justify-content:center;font-size:32px;">🧍</div></div>${csr('c7')}</div></div>`;
+
+  if(tp==='mag')return`<div class="me"><div class="mlp"><div class="mpt">Borrador mágico</div><div style="padding:0 12px;"><div style="font-size:10px;font-weight:700;color:#6b7280;margin-bottom:6px;">TAMAÑO DEL PINCEL</div>${sldr('','50%')}<div id="bera" style="background:var(--cg);color:#fff;border-radius:8px;padding:10px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;margin-top:8px;">Borrar área pintada</div></div></div><div class="mcanv"><div class="mphoto">🏖️<div style="position:absolute;top:20px;left:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,107,157,.35);border:1.5px dashed #ff6b9d;"></div><div class="mpo"></div></div>${csr('c8')}</div></div>`;
+
+  if(tp==='txt')return`<div class="me"><div class="mlp"><div class="mpt">Texto</div><div style="padding:0 12px;display:flex;flex-direction:column;gap:6px;"><div id="btxt" style="border:1.5px solid #e5e7eb;border-radius:7px;padding:9px 12px;font-size:14px;font-weight:800;cursor:pointer;color:#1a1a2e;">Agregar título</div><div style="border:1.5px solid #e5e7eb;border-radius:7px;padding:8px 12px;font-size:12px;font-weight:600;cursor:pointer;color:#1a1a2e;">Agregar subtítulo</div><div style="border:1.5px solid #e5e7eb;border-radius:7px;padding:7px 12px;font-size:11px;cursor:pointer;color:#1a1a2e;">Cuerpo de texto</div></div></div><div class="mcanv"><div class="mphoto" style="background:linear-gradient(135deg,#1a1a2e,#2d1b6e);"><div style="position:absolute;top:12px;left:12px;right:12px;background:rgba(255,255,255,.08);border:1.5px dashed rgba(125,42,232,.6);border-radius:4px;padding:6px 10px;font-size:11px;color:#fff;font-weight:700;text-align:center;">Mi marca aquí</div></div>${csr('c9')}</div></div>`;
+
+  if(tp==='undo')return`<div class="me"><div class="mlp"><div class="mpt">Historial</div><div style="padding:0 12px;display:flex;flex-direction:column;gap:4px;">${['Nitidez +30','Saturación +15','Filtro: Warm','Brillo +10','Original'].map((a,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;background:${i===0?'#f0ecff':'transparent'};border:1.5px solid ${i===0?'var(--cp)':'transparent'};font-size:11px;color:${i===0?'var(--cp)':'#6b7280'};cursor:pointer;"><span style="width:16px;height:16px;border-radius:50%;background:${i===0?'var(--cp)':'#e5e7eb'};display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-weight:700;">${5-i}</span>${a}</div>`).join('')}</div></div><div class="mcanv"><div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:6px 10px;box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:2;"><div id="bundo" style="font-size:16px;cursor:pointer;padding:2px 6px;border-radius:5px;" title="Ctrl+Z">↩</div><div style="font-size:16px;cursor:pointer;padding:2px 6px;">↪</div><div style="width:1px;background:#e5e7eb;margin:0 2px;"></div><div style="font-size:11px;color:#6b7280;display:flex;align-items:center;padding:0 4px;">Ctrl+Z = deshacer</div></div><div class="mphoto" style="margin-top:20px;">🌸<div class="mpo"></div></div>${csr('c10')}</div></div>`;
+
+  if(tp==='dl')return`<div class="me"><div class="mcanv" style="flex:1;"><div class="mphoto">🎑<div class="mpo"></div></div></div><div class="mrp"><div style="font-size:13px;font-weight:700;margin-bottom:10px;">Descargar como</div>${['JPG','PNG','PDF','SVG'].map((f,i)=>`<div id="df${f}" class="mfo ${i===0?'sl':''}"><div class="mfoi">${f}</div><div><div class="mfin">${f}</div><div class="mfid">${['Fotos y redes','Fondo transparente','Imprenta','Solo logos'][i]}</div></div></div>`).join('')}<div id="bdl" class="mdb">⬇ Descargar</div>${csr('c11')}</div></div>`;
+
+  if(tp==='shr')return`<div style="background:#f7f8fc;display:flex;align-items:center;justify-content:center;width:100%;min-height:260px;padding:20px;position:relative;"><div class="msh"><div class="msht">Compartir diseño</div><div class="msho" id="sIG"><div class="mshi" style="background:#fce4ec;">📸</div><div class="mshinfo"><strong>Instagram</strong><span>Publica o programa para después</span></div></div><div class="msho" id="sFB"><div class="mshi" style="background:#e3f2fd;">👍</div><div class="mshinfo"><strong>Facebook</strong><span>Comparte en tu página o perfil</span></div></div><div class="msho"><div class="mshi" style="background:#e8f5e9;">🐦</div><div class="mshinfo"><strong>Twitter / X</strong><span>Publica como tweet con imagen</span></div></div><div class="msho"><div class="mshi" style="background:#f3e5f5;">📅</div><div class="mshinfo"><strong>Programar</strong><span>Elige fecha y hora</span></div></div></div>${csr('c12')}</div>`;
+
+  if(tp==='slnk')return`<div style="background:#f7f8fc;display:flex;align-items:center;justify-content:center;width:100%;min-height:260px;padding:20px;position:relative;"><div class="msh" style="width:340px;"><div class="msht">Compartir con otras personas</div><div style="background:#f7f8fc;border:1.5px solid #e5e7eb;border-radius:8px;padding:10px 14px;font-size:12px;color:#6b7280;margin-bottom:14px;display:flex;align-items:center;gap:8px;">🔗<span style="flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">canva.com/design/abc123xyz/share</span></div><div style="font-size:11px;font-weight:700;color:#6b7280;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">Nivel de acceso</div>${[['Solo ver','🙈'],['Puede comentar','💬'],['Puede editar','✏️']].map(([lb,em],i)=>`<div id="ac${i}" style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;border:1.5px solid ${i===0?'var(--cp)':'#e5e7eb'};background:${i===0?'#f5f0ff':'transparent'};margin-bottom:6px;cursor:pointer;font-size:12px;font-weight:${i===0?700:500};color:${i===0?'var(--cp)':'#1a1a2e'};"><span>${em}</span>${lb}</div>`).join('')}<div id="bcl" style="background:var(--cg);color:#fff;border-radius:8px;padding:10px;text-align:center;font-size:12px;font-weight:700;cursor:pointer;margin-top:8px;">Copiar link</div></div>${csr('c13')}</div>`;
+
+  if(tp==='fin'){const steps=['Subir foto','Aplicar filtro','Ajustar brillo','Recortar 1:1','Agregar texto','Descargar JPG','Compartir link'];
+    return`<div style="background:#f7f8fc;display:flex;align-items:center;justify-content:center;width:100%;min-height:240px;padding:20px;position:relative;"><div style="background:#fff;border-radius:14px;padding:20px;width:320px;box-shadow:0 4px 20px rgba(125,42,232,.08);"><div style="font-size:13px;font-weight:800;margin-bottom:14px;background:var(--cg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Flujo completo de trabajo</div>${steps.map((s,i)=>`<div id="fr${i}" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;margin-bottom:4px;background:#fafafa;border:1px solid #f0f0f0;font-size:12px;font-weight:500;opacity:.5;transition:all .4s;"><div style="width:20px;height:20px;border-radius:50%;background:var(--cg);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;">${i+1}</div>${s}</div>`).join('')}</div>${csr('c14')}</div>`;}
+
+  return`<div style="padding:40px;text-align:center;color:#6b7280;font-size:13px;">Vista de demo</div>`;
+}
+
+/* CURSOR ANIMATION */
+const seqs={
+  home:[{id:'c0',el:'hef',a:'click'}],
+  reg:[{id:'c1',el:'rg',a:'click'}],
+  upload:[{id:'c2',el:'bup',a:'click'}],
+  adj:[{id:'c3',x:'20%',y:'35%',a:'click'},{id:'c3',x:'20%',y:'52%',a:'click'},{id:'c3',x:'20%',y:'68%',a:'click'}],
+  fil:[{id:'c4',x:'12%',y:'33%',a:'click'},{id:'c4',x:'22%',y:'33%',a:'click'},{id:'c4',x:'32%',y:'33%',a:'click'}],
+  crop:[{id:'c5',x:'70%',y:'25%',a:'drag'},{id:'c5',x:'75%',y:'20%',a:'none'}],
+  rot:[{id:'c6',x:'20%',y:'25%',a:'click'},{id:'c6',x:'33%',y:'25%',a:'click'}],
+  rbg:[{id:'c7',el:'brb',a:'click'}],
+  mag:[{id:'c8',x:'65%',y:'40%',a:'click'},{id:'c8',el:'bera',a:'click'}],
+  txt:[{id:'c9',el:'btxt',a:'click'},{id:'c9',x:'70%',y:'55%',a:'click'}],
+  undo:[{id:'c10',el:'bundo',a:'click'},{id:'c10',x:'65%',y:'65%',a:'click'}],
+  dl:[{id:'c11',el:'dfPNG',a:'click'},{id:'c11',el:'dfJPG',a:'click'},{id:'c11',el:'bdl',a:'click'}],
+  shr:[{id:'c12',el:'sIG',a:'click'},{id:'c12',el:'sFB',a:'click'}],
+  slnk:[{id:'c13',el:'ac1',a:'click'},{id:'c13',el:'bcl',a:'click'}],
+  fin:[{id:'c14',x:'50%',y:'40%',a:'none'}]
+};
+
+function startAnim(tp){
+  if(atm)clearInterval(atm);
+  as=0;
+  if(tp==='fin'){
+    let r=0;
+    atm=setInterval(()=>{
+      for(let i=0;i<7;i++){const e=document.getElementById('fr'+i);if(e)e.style.opacity=i<=r?'1':'.4';}
+      r=(r+1)%8;
+    },600);return;
+  }
+  const seq=seqs[tp];if(!seq)return;
+  function step(){
+    const s=seq[as%seq.length];
+    const c=document.getElementById(s.id);if(!c)return;
+    let tx,ty;
+    if(s.el){
+      const te=document.getElementById(s.el);
+      if(te){const vp=document.getElementById('dvp');const vr=vp?vp.getBoundingClientRect():{left:0,top:0};const r=te.getBoundingClientRect();tx=r.left-vr.left+r.width/2;ty=r.top-vr.top+r.height/2;}
+      else{tx=100;ty=80;}
+    } else {
+      const vp=document.getElementById('dvp');const w=vp?vp.offsetWidth:400;const h=vp?vp.offsetHeight:240;
+      tx=parseFloat(s.x)/100*w;ty=parseFloat(s.y)/100*h;
+    }
+    c.style.left=tx+'px';c.style.top=ty+'px';
+    if(s.a==='click'){
+      setTimeout(()=>{
+        c.classList.add('ck');
+        if(s.el){const e=document.getElementById(s.el);if(e){e.style.outline='2px solid var(--cp)';setTimeout(()=>{e.style.outline='';},400);}}
+        setTimeout(()=>c.classList.remove('ck'),450);
+      },400);
+    }
+    as++;
+  }
+  setTimeout(step,300);atm=setInterval(step,1800);
+}
+</script>
+</body>
+</html>
